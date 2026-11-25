@@ -1,0 +1,2 @@
+# Queue experiment
+Measure synchronous slow sender, unbounded-like capacity 10000, bounded capacity 10, and graceful shutdown. Record latency, notificationsAccepted, notificationsRejected, notificationsCompleted, notificationsQueued from actual tool/burst.dart and GET /stats. Accepted + rejected equals offered confirmations; queued never exceeds bound. After drain and no failure, accepted = completed. In-flight work affects equality while active.

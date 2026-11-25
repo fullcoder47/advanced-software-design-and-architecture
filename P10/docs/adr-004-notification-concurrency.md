@@ -1,0 +1,2 @@
+# ADR-004
+Decision: bounded asynchronous queue and worker. Confirmation sending is I/O-bound; booking returns immediately. Refuse when full and count it. Considered synchronous execution (slow requests), unbounded queue (memory risk), per-job thread/isolate (overhead), CPU worker pool (wrong workload), external durable broker (more operational complexity; revisit for guaranteed delivery). In-memory work may be lost on crash; graceful shutdown drains.
