@@ -1,0 +1,2 @@
+# Cache experiment
+Use tool/measure.dart for 1,000 searches. Record actual baseline and cache results: average, p95, total, databaseQueries, cacheHits, cacheMisses. Course example: 2,000 queries without cache vs 2 with cache for 2 rooms; actual numbers depend on cache state and run time. Demonstrate stale search before invalidation using an isolated lab variant, then prove version increments. A New Year's Eve search can create a hot key; next bottleneck may be booking writes.

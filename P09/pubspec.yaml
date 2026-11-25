@@ -1,0 +1,13 @@
+# pubspec.yaml
+name: hotel_booking
+description: P08 · Hotel booking - the P07 API with a Redis cache for the free-room search.
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dev_dependencies:
+  test: ^1.25.0
+dependencies:
+  postgres: 3.5.20
+  redis: 4.1.0
+  shelf: 1.4.3
+  shelf_router: 1.1.5

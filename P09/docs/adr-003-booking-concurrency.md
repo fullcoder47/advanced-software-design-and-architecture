@@ -1,0 +1,2 @@
+# ADR-003
+Decision: enforce no overlapping confirmed stays in PostgreSQL using btree_gist and exclusion constraint. Map SQLSTATE 23P01 for reservations_no_overlap to 409. Sequence allocates IDs. Alternatives studied: process lock (only one instance), row lock/transaction guard (all writers must remember), serializable transactions (retry complexity). Constraint is durable regardless of which writer inserts. In-memory store mirrors the invariant.
