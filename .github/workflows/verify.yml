@@ -1,0 +1,29 @@
+name: Verify practice snapshots
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  dart:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        practice: [P03, P04, P05, P06, P07, P08, P09, P10, P11]
+    defaults:
+      run:
+        working-directory: ${{ matrix.practice }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart analyze --no-fatal-infos --no-fatal-warnings
+      - if: matrix.practice == 'P03'
+        run: dart run bin/hotel_booking.dart && dart run bin/hotel_booking.dart --race
+      - if: matrix.practice != 'P03'
+        run: dart test
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: printf '\n' | python P02/starter/parent.py
