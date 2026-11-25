@@ -1,0 +1,2 @@
+# ADR-001: Modular monolith
+Context: one hotel application with four business areas and a small team. Decision: one deployment with explicit public contracts and internal folders. Architecture tests guard dependency direction. Alternatives: unstructured monolith (easy initially, coupling grows); microservices (network, deployment and consistency overhead). Consequence: shared process and resources but cheaper deployment and clear ownership. Revisit if separate scaling or team autonomy becomes necessary.

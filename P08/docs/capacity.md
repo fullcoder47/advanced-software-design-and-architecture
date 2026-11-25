@@ -1,0 +1,2 @@
+# Capacity estimate
+Assume 40 rooms and 200 searches/minute: 3.33 searches/sec; one SQL query per room means about 133 queries/sec. For a proposed 1 KiB response, peak search response traffic is ~3.33 KiB/sec. Assuming 1 KiB per booking, 100,000 bookings occupy ~100 MB before indexes and overhead. Measure real response size, query count, latency and storage rather than treating estimates as observations.
